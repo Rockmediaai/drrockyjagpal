@@ -40,7 +40,8 @@
   </script>
   <style>
     .gold-text { background: linear-gradient(135deg, #f7e08a, #c9a227); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  </style>
+     html { scroll-behavior: smooth; }
+      </style>
 </head>
 <body class="bg-white text-slate-900 font-sans">
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
@@ -56,7 +57,27 @@
         <a href="index.html#programs" class="hover:text-rockyBlue">Programs</a>
         <a href="index.html#contact" class="hover:text-rockyBlue">Call</a>
       </nav>
-      <a href="blueprint.html" class="hidden md:inline-block bg-rockyBlue text-white px-4 py-2 rounded-md shadow hover:bg-rockyBlueDark transition">Get Free Blueprint</a>
+      <div class="hidden md:flex items-center">
+        <a href="blueprint.html" class="bg-rockyBlue text-white px-4 py-2 rounded-md shadow hover:bg-rockyBlueDark transition">Get Free Blueprint</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-slate-300 text-slate-700">
+        <span class="sr-only">Open menu</span>
+        ☰
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white/95 backdrop-blur">
+      <div class="px-4 py-3 grid gap-3 text-sm">
+        <a href="index.html#proof" class="py-2">Proof</a>
+        <a href="index.html#deliver" class="py-2">What You Get</a>
+        <a href="before-after.html" class="py-2">Before & After</a>
+        <a href="index.html#programs" class="py-2">Programs</a>
+        <a href="index.html#contact" class="py-2">Call</a>
+        <a href="blueprint.html" class="w-full text-center bg-rockyBlue text-white px-4 py-2 rounded-md font-semibold">Get Free Blueprint</a>
+        <a href="https://www.instagram.com/drrockyjagpal/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 py-2" aria-label="Instagram: @drrockyjagpal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM17.75 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 6z"/></svg>
+          <span>@drrockyjagpal</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -106,16 +127,135 @@
             </div>
           </article>
 
-          <article class="group border rounded-xl overflow-hidden shadow-sm">
-            <div class="grid grid-cols-2 gap-0">
-              <img src="body photos rocky/editor1640754451273.png" alt="Before" class="w-full h-full object-cover" loading="lazy" decoding="async" style="aspect-ratio:3/4" />
-              <img src="body photos rocky/editor1666375953238.png" alt="After" class="w-full h-full object-cover" loading="lazy" decoding="async" style="aspect-ratio:3/4" />
-            </div>
-          </article>
         </div>
 
         <div class="mt-10 text-center">
           <a href="index.html#contact" class="inline-block bg-rockyBlue hover:bg-rockyBlueDark text-white px-6 py-3 rounded-md font-semibold">Start Your Transformation</a>
+        </div>
+      </div>
+    </section>
+    <!-- Clients section dynamically rendered -->
+    <section class="bg-slate-50 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-2xl md:text-3xl font-black">Client Results</h2>
+        <p class="mt-3 text-slate-700 max-w-3xl">Real clients. Real outcomes. Faces are intentionally blurred for privacy.</p>
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.53.19-PM.png" alt="Client transformation 1" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Tighter waist and better definition in weeks. Consistency made easy with Rocky's system.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.54.18-PM.png" alt="Client transformation 2" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Dropped body fat without losing strength—weekly tweaks kept momentum steady.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.56.18-PM.png" alt="Client transformation 3" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Simple nutrition targets, clear training—exactly what I needed to see results.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.56.28-PM.png" alt="Client transformation 4" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Core tightened, posture improved, and I feel stronger every week.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.57.43-PM.png" alt="Client transformation 5" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Realistic plan for a busy schedule—finally something I could stick to.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.58.39-PM.png" alt="Client transformation 6" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Visible results and better energy—coaching that delivers.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.58.47-PM.png" alt="Client transformation 7" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Accountability made all the difference. Weekly photos kept me honest.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.59.05-PM.png" alt="Client transformation 8" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">The plan fit my lifestyle. Fat loss without giving up everything.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.59.50-PM.png" alt="Client transformation 9" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Confident, leaner, and stronger. Best decision I made this year.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.15.08-PM.png" alt="Client transformation 11" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">As a busy parent, I needed something realistic. In 8 weeks my midsection tightened visibly.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.15.29-PM.png" alt="Client transformation 12" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Weekly tweaks kept progress moving without burnout.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.15.43-PM.png" alt="Client transformation 15" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Back pain reduced as my core strengthened—unexpected benefit.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients/Screenshot-2025-11-24-6.15.49-PM.png" alt="Client transformation 16" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Simple and effective. Highly recommend.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.16.06-PM.png" alt="Client transformation 18" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Best coaching I’ve had—clear, supportive, and results-driven.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.16.41-PM.png" alt="Client transformation 20" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Best shape I’ve been in for 10 years. Wish I started sooner.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients/Screenshot-2025-11-24-6.17.19-PM.png" alt="Client transformation 22" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Dropped body fat without losing strength—weekly tweaks kept momentum steady.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.17.43-PM.png" alt="Client transformation 23" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Simple nutrition targets, clear training—exactly what I needed to see results.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.18.11-PM.png" alt="Client transformation 24" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Core tightened, posture improved, and I feel stronger every week.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.18.15-PM.png" alt="Client transformation 25" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Realistic plan for a busy schedule—finally something I could stick to.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.18.21-PM.png" alt="Client transformation 26" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Visible results and better energy—coaching that delivers.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.18.25-PM.png" alt="Client transformation 27" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Accountability made all the difference. Weekly photos kept me honest.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.18.29-PM.png" alt="Client transformation 28" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">The plan fit my lifestyle. Fat loss without giving up everything.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.19.00-PM.png" alt="Client transformation 29" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Confident, leaner, and stronger. Best decision I made this year.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.19.04-PM.png" alt="Client transformation 30" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Down 4 inches off the waist. Energy is up, cravings down. The plan is simple and sustainable.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.19.12-PM.png" alt="Client transformation 31" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">As a busy parent, I needed something realistic. In 8 weeks my midsection tightened visibly.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.19.28-PM.png" alt="Client transformation 33" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Weekly tweaks kept progress moving without burnout.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.19.51-PM.png" alt="Client transformation 36" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Simple and effective. Highly recommend.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.19.59-PM.png" alt="Client transformation 37" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Leaned out without losing strength. Perfect balance of cardio and lifting.</p></div>
+          </article>
+          <article class="group border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="before-after-clients-blurred/Screenshot-2025-11-24-6.20.58-PM.png" alt="Client transformation 38" class="w-full h-auto object-cover" loading="lazy" decoding="async"/>
+            <div class="p-4"><p class="text-sm text-slate-700">Best coaching I’ve had—clear, supportive, and results-driven.</p></div>
+          </article>
         </div>
       </div>
     </section>
@@ -138,12 +278,39 @@
         <a href="blueprint.html" class="inline-block bg-rockyGold text-slate-900 px-4 py-2 rounded-md font-semibold hover:bg-rockyGoldDark">Get the Free Blueprint</a>
       </div>
     </div>
-    <div class="border-t border-slate-700 text-center text-xs py-4 text-slate-400">© <span id="year"></span> DrRockyJagpal.com. All rights reserved.</div>
+    <div class="border-t border-slate-700 text-center text-xs py-4 text-slate-400">
+      © <span id="year"></span> DrRockyJagpal.com. All rights reserved.
+      •
+      <a href="https://www.instagram.com/drrockyjagpal/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-white ml-2" aria-label="Instagram: @drrockyjagpal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM17.75 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 6z"/>
+        </svg>
+        <span class="sr-only">Instagram</span>
+      </a>
+    </div>
   </footer>
-
   <script>
     (function(){
       var y = document.getElementById('year'); if (y) y.textContent = String(new Date().getFullYear());
+    })();
+    (function(){
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      if (btn && menu) btn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
+      // Smooth scroll for internal anchor links and auto-close mobile menu
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var href = a.getAttribute('href');
+          if (!href || href.length < 2) return;
+          var id = href.slice(1);
+          var target = document.getElementById(id) || document.querySelector('[name="'+id+'"]');
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (menu && !menu.classList.contains('hidden')) menu.classList.add('hidden');
+          }
+        });
+      });
     })();
   </script>
 </body>
