@@ -351,5 +351,20 @@
       });
     })();
   </script>
+    <!-- Simple fallback mobile menu (shows only on phones) -->
+<div class="mobile-only-menu" style="display:none; background:#000; color:white; padding:20px; text-align:center; position:fixed; bottom:0; left:0; right:0; z-index:9999;">
+    <a href="../index.html#home" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Home</a>
+    <a href="../index.html#program" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Program</a>
+    <a href="../index.html#testimonials" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Testimonials</a>
+    <a href="../index.html#before-after" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Gallery</a>
+    <a href="../index.html#contact" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Contact</a>
+</div>
+
+<style>
+@media (max-width: 768px) {
+    .mobile-only-menu { display:block !important; }
+    body { padding-bottom: 80px; }
+}
+</style>
 </body>
 </html>
