@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+  /* 3 — Stop ANY horizontal overflow / cut-off text forever */
+  html, body { overflow-x: hidden !important; }
+  * { max-width: 100%; box-sizing: border-box; }
+  img, h1, h2, h3, p, div { word-wrap: break-word; }
+
+  /* Remove any rogue fixed bars or black ovals */
+  .mobile-only-menu, .mobile-ham, .mobile-panel, #mobilepanel { display: none !important; }
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
   /* 1 Fix text getting cut off on mobile */
   html, body { overflow-x: hidden; }
   body { padding-bottom: 0 !important; }
@@ -494,14 +505,60 @@
     body { padding-bottom: 80px; } /* stops text being hidden under the menu */
 }
 </style>
-    <!-- Guaranteed mobile hamburger menu -->
-<div class="mobile-ham" onclick="document.getElementById('mobilepanel').style.display='block'">☰</div>
-<div id="mobilepanel" class="mobile-panel" onclick="this.style.display='none'">
-  <a href="#home">Home</a>
-  <a href="#program">Program</a>
-  <a href="#testimonials">Testimonials</a>
-  <a href="#before-after">Gallery</a>
-  <a href="#contact">Contact</a>
-</div>
+<script>
+(function () {
+  // Remove any old junk first
+  document.querySelectorAll('.mobile-ham, .mobile-panel, #mobilepanel, .mobile-only-menu').forEach(el => el.remove());
+
+  function createMenu() {
+    // Tiny top-right button
+    let btn = document.createElement('button');
+    btn.innerHTML = 'Menu';
+    btn.id = 'mobile-menu-btn';
+    btn.style.cssText = 'position:fixed;top:12px;right:12px;z-index:9999;padding:8px 14px;background:#fff;border:1px solid #ccc;border-radius:8px;background:#fff;color:#111;font-size:14px;box-shadow:0 2px 8px rgba(0,0,0,0.15);display:none;';
+    
+    // Small white dropdown panel
+    let menu = document.createElement('div');
+    menu.id = 'mobile-menu';
+    menu.style.cssText = 'position:fixed;top:0;left:0;right:0;background:white;z-index:9998;display:none;padding:60px 20px 20px;border-bottom:1px solid #eee;box-shadow:0 4px 12px rgba(0,0,0,0.1);text-align:center;';
+    
+    // Links — auto-detect which page we’re on
+    const isBeforeAfter = location.pathname.includes('before-after');
+    const links = isBeforeAfter
+      ? `<a href="../index.html#home" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Home</a>
+         <a href="../index.html#program" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Program</a>
+         <a href="../index.html#testimonials" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Testimonials</a>
+         <a href="../index.html#before-after" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Gallery</a>
+         <a href="../index.html#contact" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Contact</a>`
+      : `<a href="#home" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Home</a>
+         <a href="#program" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Program</a>
+         <a href="#testimonials" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Testimonials</a>
+         <a href="#before-after" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Gallery</a>
+         <a href="#contact" style="display:block;padding:12px;font-size:18px;color:#111;text-decoration:none;">Contact</a>`;
+    
+    menu.innerHTML = links;
+    document.body.appendChild(btn);
+    document.body.appendChild(menu);
+
+    // Show only on mobile
+    if (window.innerWidth <= 768) btn.style.display = 'block';
+
+    // Toggle menu
+    btn.onclick = () => {
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    };
+    // Close when clicking a link
+    menu.querySelectorAll('a').forEach(a => {
+      a.onclick = () => menu.style.display = 'none';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createMenu);
+  } else {
+    createMenu();
+  }
+})();
+</script>
 </body>
 </html>
