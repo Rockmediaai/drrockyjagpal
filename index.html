@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- MOBILE FIXES ADDED 2025 – remove this comment anytime -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -48,6 +49,35 @@
     .gold-text { background: linear-gradient(135deg, #f7e08a, #c9a227); -webkit-background-clip: text; background-clip: text; color: transparent; }
     html { scroll-behavior: smooth; }
   </style>
+  <style>
+  /* ===== MOBILE FIXES – makes site look good on phones ===== */
+  @media only screen and (max-width: 768px) {
+    body {
+      -webkit-text-size-adjust: 100%;
+      font-size: 17px !important;
+    }
+    
+    /* Force full width on mobile */
+    .container, .wrapper, header, main, footer, div, section {
+      width: 100% !important;
+      max-width: none !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Hide desktop menu, show mobile menu later */
+    .desktop-menu, .nav-desktop, #desktop-nav {
+      display: none !important;
+    }
+    
+    /* Make images fit phone screen */
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+</style>
 </head>
 <body class="bg-white text-slate-900 font-sans">
   <!-- Top bar / nav -->
