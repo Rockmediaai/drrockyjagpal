@@ -253,5 +253,37 @@
   window.addEventListener('load', killBottomBar);
 })();
 </script>
+    <!-- OUR FINAL MOBILE MENU – blueprint.html only -->
+  <script>
+  (function(){
+    // Kill any old or wrong menu instantly
+    document.querySelectorAll('#mobile-menu-btn, #mobile-menu, .mobile-only-menu, [class*="bottom" i][class*="fixed]').forEach(x=>x.remove());
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Menu';
+    btn.id = 'mobile-menu-btn';
+    btn.style.cssText = 'position:fixed;top:12px;right:12px;z-index:99999;padding:10px 16px;background:#fff;border:1px solid #ccc;border-radius:8px;font-size:14px;box-shadow:0 3px 12px rgba(0,0,0,0.2);display:none;';
+
+    const panel = document.createElement('div');
+    panel.id = 'mobile-menu';
+    panel.innerHTML = `
+      <div style="position:fixed;top:0;left:0;right:0;background:#fff;padding:70px 20px 30px;text-align:center;z-index:99998;display:none;box-shadow:0 4px 20px rgba(0,0,0,0.2);">
+        <a href="../index.html#deliver"      style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">What You Get</a>
+        <a href="../before-after.html"       style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Before & After</a>
+        <a href="../index.html#programs"     style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Programs</a>
+        <a href="../index.html#contact"      style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Call</a>
+        <a href="../index.html#proof"        style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Proof</a>
+        <a href="../blueprint.html" style="display:block;padding:22px;margin-top:25px;background:#000;color:#fff;font-size:21px;font-weight:bold;text-decoration:none;border-radius:8px;">Get Your Free Blueprint</a>
+      </div>`;
+    document.body.appendChild(btn);
+    document.body.appendChild(panel);
+
+    if (window.innerWidth <= 768) btn.style.display = 'block';
+    btn.onclick = () => panel.firstElementChild.style.display = panel.firstElementChild.style.display === 'block' ? 'none' : 'block';
+    panel.onclick = (e) => { if (e.target.tagName === 'A') panel.firstElementChild.style.display = 'none'; };
+  })();
+  </script>
+</body>
+</html>
 </body>
 </html>
