@@ -254,35 +254,46 @@
 })();
 </script>ƒ
     <!-- OUR FINAL MOBILE MENU – blueprint.html only -->
-  <script>
-  (function(){
-    // Kill any old or wrong menu instantly
-    document.querySelectorAll('#mobile-menu-btn, #mobile-menu, .mobile-only-menu, [class*="bottom" i][class*="fixed]').forEach(x=>x.remove());
+ <script>
+// FINAL MOBILE MENU – kills ALL legacy junk and forces the correct one
+(function () {
+  // 1. Kill every possible black bottom bar / fixed overlay instantly + on load
+  function killBadStuff() {
+    document.querySelectorAll('div, nav, nav, footer, aside').forEach(el => {
+      const s = getComputedStyle(el);
+      const isBad = (s.position === 'fixed' || s.position === 'sticky') &&
+                    (s.bottom === '0px' || el.classList.contains('bottom-0')) &&
+                    (s.width === '100vw' || s.left === '0px');
+      if (isBad || el.innerHTML.includes('☰') && el !== document.getElementById('good-mobile-btn')) {
+        el.remove();
+      }
+    });
+  }
+  killBadStuff();
+  window.addEventListener('load', killBadStuff);
+  setTimeout(killBadStuff, 500);
 
-    const btn = document.createElement('button');
-    btn.textContent = 'Menu';
-    btn.id = 'mobile-menu-btn';
-    btn.style.cssText = 'position:fixed;top:12px;right:12px;z-index:99999;padding:10px 16px;background:#fff;border:1px solid #ccc;border-radius:8px;font-size:14px;box-shadow:0 3px 12px rgba(0,0,0,0.2);display:none;';
+  // 2. Force-create the correct top-right menu (exact order & links)
+  const isHome = location.pathname.endsWith('index.html') || location.pathname === '/';
+  const isBlueprint = location.pathname.includes('blueprint');
+  const base = isHome ? '' : (isBlueprint ? '../' : '../');
 
-    const panel = document.createElement('div');
-    panel.id = 'mobile-menu';
-    panel.innerHTML = `
-      <div style="position:fixed;top:0;left:0;right:0;background:#fff;padding:70px 20px 30px;text-align:center;z-index:99998;display:none;box-shadow:0 4px 20px rgba(0,0,0,0.2);">
-        <a href="../index.html#deliver"      style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">What You Get</a>
-        <a href="../before-after.html"       style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Before & After</a>
-        <a href="../index.html#programs"     style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Programs</a>
-        <a href="../index.html#contact"      style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Call</a>
-        <a href="../index.html#proof"        style="display:block;padding:16px 0;font-size:19px;color:#111;text-decoration:none;">Proof</a>
-        <a href="../blueprint.html" style="display:block;padding:22px;margin-top:25px;background:#000;color:#fff;font-size:21px;font-weight:bold;text-decoration:none;border-radius:8px;">Get Your Free Blueprint</a>
-      </div>`;
-    document.body.appendChild(btn);
-    document.body.appendChild(panel);
+  const btn = document.createElement('button');
+  btn.id = 'good-mobile-btn';
+  btn.innerHTML = 'Menu';
+  btn.style.cssText = 'position:fixed;top:12px;right:12px;z-index:100000;padding:10px 18px;background:#fff;color:#000;border:1px solid #ccc;border-radius:10px;font-size:15px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.2);display:none;';
 
-    if (window.innerWidth <= 768) btn.style.display = 'block';
-    btn.onclick = () => panel.firstElementChild.style.display = panel.firstElementChild.style.display === 'block' ? 'none' : 'block';
-    panel.onclick = (e) => { if (e.target.tagName === 'A') panel.firstElementChild.style.display = 'none'; };
-  })();
-  </script>
+  const menu = document.createElement('div');
+  menu.innerHTML = `
+    <div id="good-mobile-panel" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:99999;display:none;" onclick="this.style.display='none'">
+      <div style="background:#fff;padding:70px 20px 40px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.3);" onclick="event.stopPropagation()">
+        <a href="${base}index.html#deliver"     style="display:block;padding:18px 0;font-size:19px;color:#111;text-decoration:none;">What You Get</a>
+        <a href="${base}before-after.html"      style="display:block;padding:18px 0;font-size:19px;color:#111;text-decoration:none;">Before & After</a>
+        <a href="${base}index.html#programs"    style="display:block;padding:18px 0;font-size:19px;color:#111;text-decoration:none;">Programs</a>
+        <a href="${base}index.html#contact"     style="display:block;padding:18px 0;font-size:19px;color:#111;text-decoration:none;">Call</a>
+        <a href="${base}index.html#proof"       style="display:block;padding:18px 0;font-size:19px;color:#111;text-decoration:none;">Proof</a>
+        <a href="${isBlueprint ? 'blueprint.html' : base + 'index.html#contact'}" 
+           style="display:block;padding:22px;margin:30px auto 10px;width:90%;max-width:320px;background:#000;color:#
 </body>
 </html>
 </body>
