@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
   /* Mobile safety – stops text cut-off */
   html, body { overflow-x: hidden !important; }
@@ -202,6 +201,56 @@
   if (window.innerWidth <= 768) btn.style.display = 'block';
   btn.onclick = () => { menu.querySelector('div').style.display = menu.querySelector('div').style.display === 'block' ? 'none' : 'block'; };
   menu.onclick = (e) => { if (e.target.tagName === 'A') menu.querySelector('div').style.display = 'none'; };
+})();
+</script>
+  <script>
+(function () {
+  // KILL any rogue bottom black bar forever
+  function killBottomBar() {
+    const bad = document.querySelectorAll('div, nav, footer');
+    bad.forEach(el => {
+      const style = getComputedStyle(el);
+      const isFixedBottom = style.position === 'fixed' && (style.bottom === '0px' || el.classList.contains('bottom-0'));
+      const isFullWidth = style.left === '0px' || style.width === '100vw' || el.classList.contains('w-screen');
+      const hasMenuText = /Home|Program|Testimonials|Gallery|Contact|Proof/i.test(el.textContent);
+      if (isFixedBottom && isFullWidth && hasMenuText) el.remove();
+    });
+  }
+
+  // Our clean mobile menu — exact labels & links you want on Blueprint page
+  let btn = document.createElement('button');
+  btn.innerHTML = 'Menu';
+  btn.style.cssText = 'position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;background:#fff;border:1px solid #ccc;border-radius:8px;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,0.15);display:none;';
+
+  let menu = document.createElement('div');
+  menu.innerHTML = `
+    <div style="position:fixed;top:0;left:0;right:0;background:#fff;padding:60px 20px 30px;text-align:center;z-index:9998;display:none;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
+      <a href="../index.html#deliver"      style="display:block;padding:16px;font-size:18px;color:#111;text-decoration:none;">What You Get</a>
+      <a href="../before-after.html"       style="display:block;padding:16px;font-size:18px;color:#111;text-decoration:none;">Before & After</a>
+      <a href="../index.html#programs"     style="display:block;padding:16px;font-size:18px;color:#111;text-decoration:none;">Programs</a>
+      <a href="../index.html#contact"      style="display:block;padding:16px;font-size:18px;color:#111;text-decoration:none;">Call</a>
+      <a href="../index.html#proof"        style="display:block;padding:16px;font-size:18px;color:#111;text-decoration:none;">Proof</a>
+      <a href="../blueprint.html"          style="display:block;padding:22px;margin-top:25px;background:#000;color:#fff;font-size:21px;font-weight:bold;text-decoration:none;">Get Your Free Blueprint Free</a>
+    </div>`;
+  
+  document.body.appendChild(btn);
+  document.body.appendChild(menu);
+
+  // Show button only on mobile
+  if (window.innerWidth <= 768) btn.style.display = 'block';
+
+  // Toggle menu
+  btn.onclick = () => {
+    const panel = menu.querySelector('div');
+    panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+  };
+  menu.onclick = (e) => {
+    if (e.target.tagName === 'A') menu.querySelector('div').style.display = 'none';
+  };
+
+  // Kill any legacy bottom bar now + again after load
+  killBottomBar();
+  window.addEventListener('load', killBottomBar);
 })();
 </script>
 </body>
