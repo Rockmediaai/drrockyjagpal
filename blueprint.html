@@ -296,5 +296,30 @@
            style="display:block;padding:22px;margin:30px auto 10px;width:90%;max-width:320px;background:#000;color:#
 </body>
 </html>
+<script>
+// Fix any "Testimonials" link → always go to Before & After page
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a').forEach(a => {
+    const text = a.textContent.trim();
+    if (/testimonials?|proof|gallery/i.test(text)) {
+      a.href = (location.pathname.includes('before-after.html') || location.pathname.includes('blueprint.html'))
+        ? 'before-after.html'
+        : '../before-after.html';
+      a.target = ''; // force same tab
+    }
+  });
+});
+
+// Run again a little later in case a legacy bar injects after load
+setTimeout(() => {
+  document.querySelectorAll('a').forEach(a => {
+    if (/testimonials?|proof|gallery/i.test(a.textContent.trim())) {
+      a.href = (location.pathname.includes('before-after.html') || location.pathname.includes('blueprint.html'))
+        ? 'before-after.html'
+        : '../before-after.html';
+    }
+  });
+}, 800);
+</script>
 </body>
 </html>
